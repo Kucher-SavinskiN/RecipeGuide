@@ -1,0 +1,135 @@
+
+.auth-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 480px;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(79, 70, 229, 0.15);
+}
+
+.auth-header {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  padding: 3rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.auth-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.auth-subtitle {
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+.auth-body {
+  padding: 3rem;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 2rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s;
+
+  &:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+  }
+}
+
+.btn-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-login {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+  }
+}
+
+.btn-signup {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+  }
+}
+
+.btn-logout {
+  width: 100%;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+  }
+}
+
+.auth-avatar {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.auth-welcome {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 2rem;
+}

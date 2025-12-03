@@ -1,13 +1,18 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { GrokApiService } from './core/services/grok-api.service';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [],
-  template: `<h1 class="p-8 text-3xl">RecipesGuide запускається...</h1>`
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
-export class AppComponents implements OnInit {
+export class AppComponent {
+
+}
+/*export class AppComponents implements OnInit {
   private grok = inject(GrokApiService);
 
   ngOnInit() {
@@ -15,4 +20,4 @@ export class AppComponents implements OnInit {
       .then(recipe => console.log('🍳 Рецепт з Grok:\n\n', recipe))
       .catch(err => console.error('Grok помилка:', err));
   }
-}
+}*/

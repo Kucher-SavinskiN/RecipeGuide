@@ -1,5 +1,5 @@
 import { HttpInterceptorFn } from '@angular/common/http';
-import { secrets } from '../../../environments/environment.secret'
+import { secrets } from '../../../environments/environment.secrets'
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const apiKey = (secrets as any)?.grokApiKey;

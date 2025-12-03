@@ -27,7 +27,10 @@ export const routes: Routes = [
     path: 'profile',
     loadComponent: () => import('./features/profile/profile.component').then(m => m.ProfileComponent)
   },
-
+  {
+    path: 'auth',
+    loadComponent: () => import('./features/auth/auth.component').then(m => m.AuthComponent)
+  },
   // 404 – можна додати пізніше
   { path: '**', redirectTo: '/chat' }
 ];

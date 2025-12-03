@@ -1,0 +1,39 @@
+
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-header">
+      <h1 class="auth-title">RecipesGuide</h1>
+      <p class="auth-subtitle">Твій помічник з рецептами</p>
+    </div>
+
+    <div class="auth-body">
+      <div *ngIf="supabase.currentUser; else loginForm">
+        <div class="auth-avatar">
+          {{ supabase.currentUser?.email?.[0]?.toUpperCase() }}
+        </div>
+        <p class="auth-welcome">
+          Вітаю, {{ supabase.currentUser?.email }}!
+        </p>
+        <button (click)="logout()" class="btn btn-logout">
+          Вийти з акаунту
+        </button>
+      </div>
+
+      <ng-template #loginForm>
+        <h2 class="form-title">Увійдіть в акаунт</h2>
+
+        <input #email type="email" placeholder="Email" class="input-field">
+        <input #pass type="password" placeholder="Пароль (мін. 6 символів)" class="input-field">
+
+        <div class="btn-group">
+          <button (click)="signIn(email.value, pass.value)" class="btn btn-login">
+            Увійти
+          </button>
+          <button (click)="signUp(email.value, pass.value)" class="btn btn-signup">
+            Реєстрація
+          </button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
