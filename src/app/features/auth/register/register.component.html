@@ -1,3 +1,4 @@
+
 <div class="auth-page">
   <div class="auth-card">
     <div class="auth-header">
@@ -9,8 +10,8 @@
           <path d="M12 11.5V15"/>
         </svg>
       </div>
-      <h1 class="auth-title">RecipesGuide</h1>
-      <p class="auth-subtitle">Смачні ідеї щодня</p>
+      <h1 class="auth-title">Реєстрація</h1>
+      <p class="auth-subtitle">Створіть свій акаунт</p>
     </div>
 
     <div class="auth-body">
@@ -32,17 +33,22 @@
         </div>
       }
 
-      @if (supabase.currentUser) {
-        <div class="user-info">
-          <div class="auth-avatar">
-            {{ supabase.currentUser?.email?.[0]?.toUpperCase() }}
-          </div>
-          <p class="auth-welcome">
-            Вітаємо, <span>{{ supabase.currentUser?.email }}</span>
-          </p>
-          <button (click)="logout()" class="btn btn-logout">
-            Вийти з акаунту
+      @if (registeredEmail) {
+        <div class="email-sent">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          <h3>Перевірте вашу пошту</h3>
+          <p>Ми надіслали лист підтвердження на<br><strong>{{ registeredEmail }}</strong></p>
+          <p class="hint">Натисніть на посилання в листі для активації акаунту</p>
+
+          <button (click)="resendEmail()" class="btn btn-secondary">
+            Надіслати лист повторно
           </button>
+
+          <a routerLink="/auth" class="btn btn-primary">
+            Повернутися до входу
+          </a>
         </div>
       } @else {
         <div class="input-group">
@@ -55,16 +61,21 @@
           <input #pass id="password" type="password" placeholder="••••••••" class="input-field">
         </div>
 
-        <button (click)="signIn(email.value, pass.value)" class="btn btn-primary">
-          Увійти
+        <div class="input-group">
+          <label for="confirmPassword">Підтвердіть пароль</label>
+          <input #confirmPass id="confirmPassword" type="password" placeholder="••••••••" class="input-field">
+        </div>
+
+        <button (click)="signUp(email.value, pass.value, confirmPass.value)" class="btn btn-primary">
+          Створити акаунт
         </button>
 
         <div class="divider">
-          <span>немає акаунту?</span>
+          <span>вже є акаунт?</span>
         </div>
 
-        <a routerLink="/register" class="btn btn-secondary">
-          Створити акаунт
+        <a routerLink="/auth" class="btn btn-secondary">
+          Увійти
         </a>
       }
     </div>

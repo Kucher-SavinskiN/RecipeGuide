@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { GrokApiService } from './core/services/grok-api.service';
-import { RouterOutlet } from '@angular/router';
+import {Router, RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,11 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  router = inject(Router);
 
+  get isAuthPage(): boolean {
+    return this.router.url === '/auth' || this.router.url === '/register';
+  }
 }
 /*export class AppComponents implements OnInit {
   private grok = inject(GrokApiService);
